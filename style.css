@@ -1,0 +1,36 @@
+nav {
+    margin: 0px 10px 0px 0px;
+    top: 0px;
+    border-radius: 10px;
+    background-color: #FF6600;
+}
+
+nav ul {
+    float: left;
+    width: 100%;
+    padding: 0; margin: 0;
+    list-style-type: none;
+  }
+
+
+nav li {
+    display: inline;
+  }
+
+li#active{
+    background-color: #cc6600;
+}
+
+nav a {
+    float: left;
+    padding: 3px 5px;
+    margin: 0px 1px;
+    text-decoration: none;
+    color: white;
+    background-color: #3399ee;
+  }
+
+nav  a:hover {
+    background-color: #cc6600;
+  }
+
