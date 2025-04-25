@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX CRUD Alkalmazás</title>
+  <link rel="stylesheet" href="tablacss.css">
+  <script src="ajax.js" defer></script>
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="tabla.html">Táblázat</a></li>
+      <li><a href="diagram.html">Diagram</a></li>
+      <li><a href="ajax.html" class="active">AJAX</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>AJAX CRUD Alkalmazás</h1>
+  </header>
+
+  <section>
+    <h3>Adatok megjelenítése</h3>
+    <button onclick="readData()">Adatok lekérése</button>
+    <div id="data-output"></div>
+    <div id="statistics"></div>
+  </section>
+
+  <section>
+    <h3>Adat létrehozása</h3>
+    <form id="create-form">
+      <label for="create-name">Név:</label>
+      <input type="text" id="create-name" maxlength="30" required>
+      <label for="create-height">Magasság:</label>
+      <input type="number" id="create-height" required>
+      <button type="button" onclick="createData()">Létrehozás</button>
+    </form>
+    <div id="create-feedback"></div>
+  </section>
+
+  <section>
+    <h3>Adat frissítése</h3>
+    <form id="update-form">
+      <label for="update-id">ID:</label>
+      <input type="text" id="update-id" required>
+      <button type="button" onclick="getDataForId()">Adatok betöltése</button>
+      <br>
+      <label for="update-name">Név:</label>
+      <input type="text" id="update-name" maxlength="30" required>
+      <label for="update-height">Magasság:</label>
+      <input type="number" id="update-height" required>
+      <button type="button" onclick="updateData()">Frissítés</button>
+    </form>
+    <div id="update-feedback"></div>
+  </section>
+
+  <section>
+    <h3>Adat törlése</h3>
+    <form id="delete-form">
+      <label for="delete-id">ID:</label>
+      <input type="text" id="delete-id" required>
+      <button type="button" onclick="deleteData()">Törlés</button>
+    </form>
+    <div id="delete-feedback"></div>
+  </section>
+
+  <footer>
+    <div>
+      Elkészítette: <u><b>Muskó Milán (HYZ9ZM)</b></u> és <u><b>Sári Bence (OK3ZO0)</b></u><br>
+      <br>
+      &copy; 2025 Digitális Biztonság és Adatvédelem. Minden jog fenntartva.
+    </div>
+  </footer>
+</body>
+</html>
