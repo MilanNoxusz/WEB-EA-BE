@@ -92,3 +92,10 @@ footer {
     z-index: 1000; 
 }
 
+#chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
