@@ -8,14 +8,14 @@
 </head>
 <body>
 
-            <nav>
+        <nav>
             <ul class="menu">
               <li><a href="index.html">Főoldal</a></li>
               <li><a href="table.html" class="active">Táblázat</a></li>
               <li><a href="#about">Rólunk</a></li>
               <li><a href="contact">Kapcsolat</a></li>
             </ul>
-</nav>
+        </nav>
     
     <h1>Táblázat CRUD</h1>
     <form id="form">
@@ -38,7 +38,7 @@
         <button type="button" onclick="addRow()">Hozzáadás</button>
     </form>
 
-    <input type="text" id="search" placeholder="Keresés..." onkeyup="filterTable()">
+
     <br><br>
 
     <table id="table">
@@ -52,13 +52,12 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Dinamikusan generált sorok ide kerülnek -->
         </tbody>
     </table>
 </section>
 
     <footer>
-        <div id="footer-content">
+        <div>
             Elkészítette: <u><b>Muskó Milán (HYZ9ZM)</b></u> és <u><b>Sári Bence (OK3ZO0)</b></u><br>
             <br>
             &copy; 2025 Digitális Biztonság és Adatvédelem. Minden jog fenntartva.
@@ -72,7 +71,6 @@
             const email = document.getElementById('email').value.trim();
             const city = document.getElementById('city').value.trim();
 
-            // Validáció
             let valid = true;
             if (name.length < 3 || name.length > 50) {
                 document.getElementById('nameError').textContent = "A név hossza 3 és 50 karakter között kell legyen.";

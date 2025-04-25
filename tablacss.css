@@ -7,6 +7,10 @@ html, body {
     flex-direction: column;
 }
 
+body > *:not(footer) {
+    flex: 1; 
+  }
+
 .menu {
     background-color: #0d4896;
     top: 0;
@@ -81,15 +85,9 @@ footer {
     text-align: center;
     padding: 20px 0;
     font-size: 14px;
-    margin-top: 20px;
+    position: relative; 
+    bottom: 0;
+    width: 100%; 
+    z-index: 1000; 
 }
 
-#footer-content {
-    text-align: center;
-    padding: 10px 0;
-    font-size: 17px;
-    color: #ffffff;
-    background-color: #0d4896;
-    margin-top: 50px;
-    border-radius: 30px;
-}
