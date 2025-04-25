@@ -108,8 +108,3 @@ footer {
 body > *:not(footer) {
   flex: 1; /* A tartalom kitölti a fennmaradó helyet */
 }
-br
-{
-  border:1px solid #0d4896;
-  margin: 20px auto;
-}

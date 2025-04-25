@@ -1,0 +1,61 @@
+
+html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    height: 50%; /* Az oldal teljes magasságának kitöltése */
+    text-align: left;
+  }
+  .menu 
+  {
+    background-color: #0d4896;
+    top: 0; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+    list-style-type: none;
+  }
+  .menu a 
+  {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 400;
+    transition: font-weight 0.3s ease, background-color 0.3s ease;
+    width: 120px;
+  }
+  
+  .menu a:hover 
+  {
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #0d4896;
+    font-weight: 700;
+  }
+  .menu a.active 
+  {
+    background-color: #ffffff; 
+    color: #0d4896;
+    font-weight: bold; 
+    border-radius: 5px; 
+  }
+  h2
+  {
+    text-align:left;
+  color: #0d4896;
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  }
+
+
+    
+  
+ 
