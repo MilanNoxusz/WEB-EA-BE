@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digitális biztonság és adatvédelem</title>
+  <link rel="stylesheet" href="html5.css">
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="beadando.html">Főoldal</a></li>
+      <li><a href="#table">Táblázat</a></li>
+      <li><a href="#html5.html" class="active">HTML5 menük</a></li>
+      <li><a href="#contact">Kapcsolat</a></li>
+    </ul>
+  </nav>
+  
+  <h2>Web Storage Példa</h2>
+  <input type="text" id="name" placeholder="Írd be a neved">
+  <button onclick="saveName()">Mentés</button>
+  <button onclick="loadName()">Betöltés</button>
+  <p id="output"></p>
+
+  <script src="webstorage.js"></script>
+
+    <h2>Geolocation API Példa</h2>
+  <button onclick="getLocation()">Helyzetem megtekintése</button>
+  <p id="location-output">A helyzeted itt fog megjelenni.</p>
+  
+  <script src="geolocation.js"></script>
+
+    <h2>Drag and Drop API Példa</h2>
+  <div id="drag1" draggable="true" ondragstart="drag(event)" style="width:100px; height:100px; background:blue; margin:10px; display:inline-block;"></div>
+  <div id="drag2" draggable="true" ondragstart="drag(event)" style="width:100px; height:100px; background:green; margin:10px; display:inline-block;"></div>
+  <div id="drag3" draggable="true" ondragstart="drag(event)" style="width:100px; height:100px; background:orange; margin:10px; display:inline-block;"></div>
+  
+  <div id="drop" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:400px; height:200px; border:2px dashed black; margin-top:20px; text-align:center; line-height:200px;">
+    Dobd ide az elemeket!
+  </div>
+  
+  <script src="dragdrop.js"></script>
+
+    <h2>Canvas API Példa</h2>
+  <canvas id="myCanvas" width="400" height="200" style="border:1px solid black;"></canvas>
+  
+  <script src="canvas.js"></script>
+  <h2>SVG Példa</h2>
+  <svg height="150" width="500" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="240" cy="100" rx="220" ry="30" fill="RED" />
+    <ellipse cx="220" cy="70" rx="190" ry="20" fill="YELLOW" />
+    <ellipse cx="210" cy="45" rx="170" ry="15" fill="BLACK" />
+  </svg>
+</body>
+</html>
