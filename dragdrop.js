@@ -1,21 +1,20 @@
 function allowDrop(event) {
-  event.preventDefault(); // Engedélyezi a dobást
+  event.preventDefault(); 
 }
 
 function drag(event) {
-  event.dataTransfer.setData("text", event.target.id); // Az áthúzott elem azonosítójának mentése
+  event.dataTransfer.setData("text", event.target.id); 
 }
 
 function drop(event) {
-  event.preventDefault(); // Megakadályozza az alapértelmezett viselkedést
-  const data = event.dataTransfer.getData("text"); // Az áthúzott elem azonosítójának lekérése
+  event.preventDefault(); 
+  const data = event.dataTransfer.getData("text"); 
   const draggedElement = document.getElementById(data);
 
-  // Ha van szöveg a célterületen, távolítsuk el
   if (event.target.innerText === "Dobd ide az elemeket!") {
-    event.target.innerText = ""; // Szöveg eltávolítása
+    event.target.innerText = ""; 
   }
 
-  event.target.appendChild(draggedElement); // Az elem hozzáadása a célterülethez
-  draggedElement.style.margin = "5px"; // Igazítás a célterületen belül
+  event.target.appendChild(draggedElement); 
+  draggedElement.style.margin = "5px"; 
 }
