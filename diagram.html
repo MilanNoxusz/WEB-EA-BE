@@ -14,6 +14,7 @@
       <li><a href="tabla.html">Táblázat</a></li>
       <li><a href="diagram.html" class="active">Diagram</a></li>
       <li><a href="ajax.html">AJAX</a></li>
+      <li><a href="oojs.html">oojs</a></li>
       <li><a href="#about">Rólunk</a></li>
       <li><a href="#contact">Kapcsolat</a></li>
     </ul>
@@ -94,21 +95,18 @@
     let chart;
 
                 function plotRow(row) {
-          const cells = Array.from(row.cells).slice(1); // Az első cella (Év) kihagyása
+          const cells = Array.from(row.cells).slice(1); 
           const labels = ['Adat 1', 'Adat 2', 'Adat 3', 'Adat 4'];
           const data = cells.map(cell => parseInt(cell.textContent));
         
-          // Ha már létezik egy diagram, töröljük
           if (chart) {
             chart.destroy();
           }
         
-          // Fix méret beállítása a canvas elemre
           const canvas = document.getElementById('line-chart');
-          canvas.style.width = '600px'; // Fix szélesség
-          canvas.style.height = '400px'; // Fix magasság
+          canvas.style.width = '600px'; 
+          canvas.style.height = '400px';
         
-          // Új diagram létrehozása
           chart = new Chart(canvas.getContext('2d'), {
             type: 'line',
             data: {
@@ -122,8 +120,8 @@
               }]
             },
             options: {
-              responsive: false, // Kikapcsoljuk a reszponzivitást
-              maintainAspectRatio: false, // Engedélyezzük a méretarány módosítását
+              responsive: false, 
+              maintainAspectRatio: false, 
               plugins: {
                 legend: {
                   position: 'top',

@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   padding: 0;
-  height: 50%; /* Az oldal teljes magasságának kitöltése */
+  height: 50%; 
   display: flex;
   flex-direction: column;
 }
@@ -106,5 +106,5 @@ footer {
   padding: 20px
 }
 body > *:not(footer) {
-  flex: 1; /* A tartalom kitölti a fennmaradó helyet */
+  flex: 1;
 }

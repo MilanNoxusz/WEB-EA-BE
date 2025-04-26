@@ -1,13 +1,11 @@
 function getLocation() {
   const output = document.getElementById("location-output");
 
-  // Ellenőrizzük, hogy a böngésző támogatja-e a Geolocation API-t
   if (!navigator.geolocation) {
     output.innerText = "A böngésződ nem támogatja a Geolocation API-t.";
     return;
   }
 
-  // Helyzet lekérése
   navigator.geolocation.getCurrentPosition(
     (position) => {
       const latitude = position.coords.latitude;

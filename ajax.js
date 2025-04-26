@@ -1,7 +1,6 @@
-// API URL
-const API_URL = "https://example.com/api/data"; // Cseréld ki a megfelelő API URL-re
 
-// Adatok lekérése
+const API_URL = "https://beadandomuskosariea.nhely.hu"; // Cseréld ki a megfelelő API URL-re
+
 function readData() {
   fetch(API_URL)
     .then(response => response.json())
@@ -28,7 +27,6 @@ function readData() {
     .catch(error => console.error("Hiba az adatok lekérésekor:", error));
 }
 
-// Adat létrehozása
 function createData() {
   const name = document.getElementById("create-name").value.trim();
   const height = parseInt(document.getElementById("create-height").value);
@@ -51,7 +49,6 @@ function createData() {
     .catch(error => console.error("Hiba az adat létrehozásakor:", error));
 }
 
-// Adatok betöltése ID alapján
 function getDataForId() {
   const id = document.getElementById("update-id").value.trim();
 
@@ -64,7 +61,6 @@ function getDataForId() {
     .catch(error => console.error("Hiba az adatok betöltésekor:", error));
 }
 
-// Adat frissítése
 function updateData() {
   const id = document.getElementById("update-id").value.trim();
   const name = document.getElementById("update-name").value.trim();
@@ -88,7 +84,6 @@ function updateData() {
     .catch(error => console.error("Hiba az adat frissítésekor:", error));
 }
 
-// Adat törlése
 function deleteData() {
   const id = document.getElementById("delete-id").value.trim();
 
