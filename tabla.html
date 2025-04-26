@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Táblázat CRUD</title>
+    <link rel="stylesheet" href="tablacss.css">
+</head>
+<body>
+
+        <nav>
+            <ul class="menu">
+              <li><a href="index.html">Főoldal</a></li>
+              <li><a href="tabla.html" class="active">Táblázat</a></li>
+              <li><a href="diagram.html" >Diagram</a></li>
+              <li><a href="ajax.html">AJAX</a></li>
+              <li><a href="oojs.html">oojs</a></li>  
+            </ul>
+        </nav>
+    
+    <h1>Táblázat CRUD</h1>
+    <form id="form">
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name" required minlength="3" maxlength="50">
+        <span class="error" id="nameError"></span><br><br>
+
+        <label for="age">Kor:</label>
+        <input type="number" id="age" name="age" required min="1" max="120">
+        <span class="error" id="ageError"></span><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="emailError"></span><br><br>
+
+        <label for="city">Város:</label>
+        <input type="text" id="city" name="city" required minlength="2" maxlength="50">
+        <span class="error" id="cityError"></span><br><br>
+
+        <button type="button" onclick="addRow()">Hozzáadás</button>
+    </form>
+
+
+    <br><br>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Név</th>
+                <th onclick="sortTable(1)">Kor</th>
+                <th onclick="sortTable(2)">Email</th>
+                <th onclick="sortTable(3)">Város</th>
+                <th>Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</section>
+
+    <footer>
+        <div>
+            Elkészítette: <u><b>Muskó Milán (HYZ9ZM)</b></u> és <u><b>Sári Bence (OK3ZO0)</b></u><br>
+            <br>
+            &copy; 2025 Digitális Biztonság és Adatvédelem. Minden jog fenntartva.
+        </div>
+    </footer>
+
+    <script>
+        function addRow() {
+            const name = document.getElementById('name').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const city = document.getElementById('city').value.trim();
+
+            let valid = true;
+            if (name.length < 3 || name.length > 50) {
+                document.getElementById('nameError').textContent = "A név hossza 3 és 50 karakter között kell legyen.";
+                valid = false;
+            } else {
+                document.getElementById('nameError').textContent = "";
+            }
+
+            if (age < 1 || age > 120) {
+                document.getElementById('ageError').textContent = "A kor 1 és 120 között kell legyen.";
+                valid = false;
+            } else {
+                document.getElementById('ageError').textContent = "";
+            }
+
+            if (!email.includes('@')) {
+                document.getElementById('emailError').textContent = "Érvényes email címet adjon meg.";
+                valid = false;
+            } else {
+                document.getElementById('emailError').textContent = "";
+            }
+
+            if (city.length < 2 || city.length > 50) {
+                document.getElementById('cityError').textContent = "A város hossza 2 és 50 karakter között kell legyen.";
+                valid = false;
+            } else {
+                document.getElementById('cityError').textContent = "";
+            }
+
+            if (!valid) return;
+
+            const table = document.getElementById('table').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${age}</td>
+                <td>${email}</td>
+                <td>${city}</td>
+                <td>
+                    <button onclick="editRow(this)">Szerkesztés</button>
+                    <button onclick="deleteRow(this)">Törlés</button>
+                </td>
+            `;
+
+            document.getElementById('form').reset();
+        }
+
+        function deleteRow(button) {
+            const row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        function editRow(button) {
+            const row = button.parentNode.parentNode;
+            const cells = row.getElementsByTagName('td');
+
+            document.getElementById('name').value = cells[0].textContent;
+            document.getElementById('age').value = cells[1].textContent;
+            document.getElementById('email').value = cells[2].textContent;
+            document.getElementById('city').value = cells[3].textContent;
+
+            deleteRow(button);
+        }
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById('table');
+            const rows = Array.from(table.rows).slice(1);
+            const isAscending = table.getAttribute('data-sort') !== 'asc';
+
+            rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].textContent.trim();
+                const bText = b.cells[columnIndex].textContent.trim();
+
+                return isAscending
+                    ? aText.localeCompare(bText, undefined, { numeric: true })
+                    : bText.localeCompare(aText, undefined, { numeric: true });
+            });
+
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+            table.setAttribute('data-sort', isAscending ? 'asc' : 'desc');
+        }
+
+        function filterTable() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const rows = document.getElementById('table').getElementsByTagName('tbody')[0].rows;
+
+            for (let row of rows) {
+                const cells = Array.from(row.cells).slice(0, -1);
+                const matches = cells.some(cell => cell.textContent.toLowerCase().includes(filter));
+                row.style.display = matches ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>
