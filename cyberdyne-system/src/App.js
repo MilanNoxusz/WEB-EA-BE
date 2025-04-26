@@ -24,11 +24,11 @@ function App() {
       return;
     }
 
-    const feedback = calculateFeedback(currentGuess, secretColors);
+    const newFeedback = calculateFeedback(currentGuess, secretColors);
     setGuesses([...guesses, currentGuess]);
-    setFeedback([...feedback, feedback]);
+    setFeedback([...feedback, newFeedback]);
 
-    if (feedback.correct === 4) {
+    if (newFeedback.correct === 4) {
       alert("Gratulálok! Kitaláltad a kombinációt!");
     }
   }
@@ -40,7 +40,6 @@ function App() {
     const secretCopy = [...secret];
     const guessCopy = [...guess];
 
-    // Ellenőrizd a helyes pozíciókat
     for (let i = 0; i < 4; i++) {
       if (guessCopy[i] === secretCopy[i]) {
         correct++;
@@ -49,7 +48,6 @@ function App() {
       }
     }
 
-    // Ellenőrizd a rossz helyen lévő színeket
     for (let i = 0; i < 4; i++) {
       if (guessCopy[i] && secretCopy.includes(guessCopy[i])) {
         wrongPlace++;
