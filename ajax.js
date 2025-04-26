@@ -1,4 +1,4 @@
-const API_URL = "http://gamf.nhely.hu/ajax2/";
+const API_URL = "http://beadandomuskosariea.nhely.hu/AjaxApi.php"; 
 const USER_CODE = "HYZ9ZMkkm930"; 
 
 function readData() {
