@@ -33,21 +33,12 @@ function Game() {
     <div>
       <div>
         {choices.map((choice) => (
-          <button
-            key={choice}
-            onClick={() => playGame(choice)}
-            style={{
-              margin: "10px",
-              padding: "10px 20px",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
+          <button key={choice} onClick={() => playGame(choice)}>
             {choice}
           </button>
         ))}
       </div>
-      <div style={{ marginTop: "20px" }}>
+      <div className="result">
         <h2>Te választottad: {userChoice}</h2>
         <h2>Számítógép választása: {computerChoice}</h2>
         <h2>Eredmény: {result}</h2>
