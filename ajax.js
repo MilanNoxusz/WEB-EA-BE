@@ -1,8 +1,9 @@
 
-const API_URL = "https://beadandomuskosariea.nhely.hu"; // Cseréld ki a megfelelő API URL-re
+const API_URL = "http://gamf.nhely.hu/ajax2/";
+const USER_CODE = "HYZ9ZMkkm930"; 
 
 function readData() {
-  fetch(API_URL)
+    fetch(`${API_URL}?op=read&code=${USER_CODE}`)
     .then(response => response.json())
     .then(data => {
       const output = document.getElementById("data-output");
@@ -36,10 +37,10 @@ function createData() {
     return;
   }
 
-  fetch(API_URL, {
+    fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, height })
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `op=create&name=${name}&height=${height}&weight=${weight}&code=${USER_CODE}`
   })
     .then(response => response.json())
     .then(data => {
@@ -71,10 +72,10 @@ function updateData() {
     return;
   }
 
-  fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, height })
+    fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `op=update&id=${id}&name=${name}&height=${height}&weight=${weight}&code=${USER_CODE}`
   })
     .then(response => response.json())
     .then(data => {
@@ -87,16 +88,10 @@ function updateData() {
 function deleteData() {
   const id = document.getElementById("delete-id").value.trim();
 
-  fetch(`${API_URL}/${id}`, {
-    method: "DELETE"
+    fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `op=delete&id=${id}&code=${USER_CODE}`
   })
-    .then(response => {
-      if (response.ok) {
-        document.getElementById("delete-feedback").innerText = "Adat sikeresen törölve!";
-        readData();
-      } else {
-        throw new Error("Hiba az adat törlésekor");
-      }
-    })
     .catch(error => console.error("Hiba az adat törlésekor:", error));
 }
